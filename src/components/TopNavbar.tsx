@@ -13,8 +13,7 @@ interface navProps {
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-  }
+  root: {}
 }))
 
 

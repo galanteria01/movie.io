@@ -10,8 +10,7 @@ const useStyles = makeStyles({
     padding: 24,
     minHeight: '90vh'
   },
-  grid: {
-  }
+  grid: {}
 })
 
 const HomeScreen = () => {

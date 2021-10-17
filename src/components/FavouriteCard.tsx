@@ -13,9 +13,7 @@ interface cardProps {
 }
 
 const useStyles = makeStyles({
-  root: {
-
-  }
+  root: {}
 })
 
 const FavouriteCard = (props: cardProps) => {
