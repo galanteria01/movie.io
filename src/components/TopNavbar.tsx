@@ -1,7 +1,6 @@
 import { Favorite, Lightbulb, List, Search } from '@mui/icons-material'
 import { AppBar, Button, IconButton, Toolbar, Typography, useTheme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import { useState } from 'hoist-non-react-statics/node_modules/@types/react'
 import React from 'react'
 import { useHistory } from 'react-router'
 
