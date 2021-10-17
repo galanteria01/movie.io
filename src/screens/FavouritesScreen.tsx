@@ -1,9 +1,6 @@
 import { Grid } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import MovieCard from '../components/MovieCard'
-import { useEffect, useState } from 'react'
-import { API_URL } from '../utils/constant'
-import { randomTitles } from '../utils/movieService'
 import { selectFavourite } from '../features/favourites/favouritesSlice'
 import { useAppSelector } from '../app/hooks'
 

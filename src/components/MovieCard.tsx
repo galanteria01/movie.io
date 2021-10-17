@@ -1,7 +1,7 @@
 import { Favorite } from '@mui/icons-material'
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Icon, IconButton, Typography } from '@mui/material'
+import { Box, Card, CardContent, CardMedia, IconButton, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { selectFavourite, add, del } from '../features/favourites/favouritesSlice'
 
@@ -23,8 +23,6 @@ const useStyles = makeStyles({
 const MovieCard = (props: cardProps) => {
   const classes = useStyles()
   const favourites = useAppSelector(selectFavourite)
-  console.log({...props})
-  console.log(favourites[0])
   const [isFav, setIsFav] = useState(false);
   const dispatch = useAppDispatch()
   const handleClick = () => {

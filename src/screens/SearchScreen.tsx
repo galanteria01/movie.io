@@ -1,9 +1,7 @@
-import { Grid, InputLabel, Select, MenuItem, TextField } from '@mui/material'
+import { Grid, TextField } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import React, {useState, useEffect} from 'react'
-import { useAppDispatch, useAppSelector } from '../app/hooks'
+import {useState, useEffect} from 'react'
 import MovieCard from '../components/MovieCard'
-import { selectFavourite } from '../features/favourites/favouritesSlice'
 import { API_URL } from '../utils/constant'
 
 const useStyles = makeStyles({
@@ -14,7 +12,6 @@ const useStyles = makeStyles({
 })
 
 const SearchScreen = () => {
-  const [searchType, setSearchType] = useState('')
   const [search, setSearch] = useState<string>('search')
   const [list, setList] = useState<any[]>([]);
   const getMovies = () => {
