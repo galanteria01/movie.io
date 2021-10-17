@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import MovieCard from '../components/MovieCard'
 import { selectFavourite } from '../features/favourites/favouritesSlice'
 import { useAppSelector } from '../app/hooks'
+import { FavouriteCard } from '../components'
 
 const useStyles = makeStyles({
   home: {
@@ -17,7 +17,6 @@ const FavouritesScreen = () => {
   const classes = useStyles()
   const favourites = useAppSelector(selectFavourite)
 
-
   return (
     <div className={classes.home}>
       <Grid
@@ -27,7 +26,7 @@ const FavouritesScreen = () => {
       >
         {favourites.map((element) => (
           <Grid item xs={12} md={6} xl={4}>
-            <MovieCard
+            <FavouriteCard
               Title={element.Title}
               Type={element.Type}
               Year={element.Year}

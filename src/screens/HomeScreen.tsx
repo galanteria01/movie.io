@@ -1,13 +1,14 @@
 import { Grid } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import MovieCard from '../components/MovieCard'
 import { useEffect, useState } from 'react'
+import { MovieCard } from '../components'
 import { API_URL } from '../utils/constant'
 import { randomTitles } from '../utils/movieService'
 
 const useStyles = makeStyles({
   home: {
     padding: 24,
+    minHeight: '90vh'
   },
   grid: {
   }
@@ -18,11 +19,14 @@ const HomeScreen = () => {
   const [movies, setMovies] = useState<any[]>([])
 
   useEffect(() => {
-    var title: string = randomTitles[Math.floor(Math.random() * randomTitles.length)]
-    fetch(`${API_URL}s=${title}`)
+    async function fetchRandomMovies() {
+      let title: string = randomTitles[Math.floor(Math.random() * randomTitles.length)]
+      await fetch(`${API_URL}s=${title}`)
       .then((res) => res.json())
       .then((data) => setMovies(data.Search))
       .catch((err) => console.log(err))
+    }
+    fetchRandomMovies()
   }, [])
 
   return (

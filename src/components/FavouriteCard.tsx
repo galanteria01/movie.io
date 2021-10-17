@@ -1,4 +1,4 @@
-import { Cancel, Favorite } from '@mui/icons-material'
+import { Cancel } from '@mui/icons-material'
 import { Box, Card, CardContent, CardMedia, IconButton, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useState } from 'react'
@@ -18,20 +18,11 @@ const useStyles = makeStyles({
   }
 })
 
-
-
-const MovieCard = (props: cardProps) => {
+const FavouriteCard = (props: cardProps) => {
   const classes = useStyles()
   const favourites = useAppSelector(selectFavourite)
-  const [isFav, setIsFav] = useState(false);
   const dispatch = useAppDispatch()
   const handleClick = () => {
-    if (favourites.includes({
-      Title: props.Title,
-      Type: props.Type,
-      Year: props.Year,
-      Poster: props.Poster
-    })) {
       dispatch(del(
         {
           Title: props.Title,
@@ -40,15 +31,6 @@ const MovieCard = (props: cardProps) => {
           Poster: props.Poster
         }
       ))
-    } else {
-      dispatch(add({
-        Title: props.Title,
-        Type: props.Type,
-        Year: props.Year,
-        Poster: props.Poster
-      }))
-    }
-    setIsFav(true)
   }
   return (
     <Card sx={{ display: 'flex', height: 200, minWidth: 100 }}>
@@ -63,7 +45,7 @@ const MovieCard = (props: cardProps) => {
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton aria-label="previous" onClick={handleClick}>
-            <Favorite color={isFav ? "primary" : "secondary"} />
+            <Cancel />
           </IconButton>
         </Box>
       </Box>
@@ -71,10 +53,10 @@ const MovieCard = (props: cardProps) => {
         component="img"
         sx={{ width: 151 }}
         image={props.Poster}
-        alt="Live from space album cover"
+        alt={props.Title}
       />
     </Card>
   )
 }
 
-export default MovieCard
+export default FavouriteCard
