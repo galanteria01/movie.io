@@ -7,7 +7,7 @@ import { API_URL } from '../utils/constant'
 const useStyles = makeStyles({
   root: {
     padding: 24,
-    minHeight: '90vh'
+    minHeight: '100vh'
   }
 })
 
